@@ -1,0 +1,46 @@
+.main {
+    img {
+        width: 100vw;
+        height: 60vh;
+    }
+    section {
+        position: absolute;
+        top: 44%;
+        margin: 0 12%;
+        button {
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            background: linear-gradient(136.04deg,#1b91ff -.78%,#9f49e3 92.66%) no-repeat;
+            padding: 3px 5px;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        a{
+            text-decoration: none;
+            // color: linear-gradient(136.04deg,#1b91ff -.78%,#9f49e3 92.66%) no-repeat;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .main {
+        img {
+            height: 28vh;
+        }
+        section {
+            top: 10%
+        }
+        button {
+            font-size: 9px;
+        }
+        h1 {
+            font-size: 14px;
+            margin: 0;
+        }
+        a {
+
+        }
+    }
+}

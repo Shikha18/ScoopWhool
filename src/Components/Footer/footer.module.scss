@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    color: #ccc;
+    margin: 10px;
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        font-size: 14px;
+        a {
+            color: #ccc;
+            text-decoration: none;
+        }
+    }
+    section:nth-child(1){
+            p {
+                margin: 0;
+                font-size: 12px;
+            }
+    }
+    section:nth-child(2){
+        justify-content: space-around;
+    }
+}
