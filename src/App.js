@@ -5,28 +5,41 @@ import Main from './Components/Main/main';
 import Card from './Components/Card/card';
 import Footer from './Components/Footer/footer';
 
-
 function App() {
-  const [tag, setTag] = useState(false);
+  const [offset, setOffset] = useState(1);
+  const [navBackground , setNavBackground] = useState('');
 
+   const handleScroll = event => {
+        const { scrollTop, clientHeight, scrollHeight } = event.target;
+
+        if(scrollHeight - scrollTop === clientHeight) {
+            setOffset(prev => prev + 1);
+        }
+        console.log('anant-------->', window.scrollY);
+        if (window.scrollY < 100) {
+           setNavBackground("transparent")
+        } else {
+           setNavBackground("white")
+        } 
+    }
 
   return (
     <div className={style.app}>
-      <Navbar />
+      <Navbar navBackground={navBackground}/>
+      <article onScroll={handleScroll}>
       <Main />
 
       <div className={style.tags}>
-        <div onChange={()=> setTag(true)}>
-        { tag? <button>FRESH</button>:<button>HOT</button>
-        // <button>FRESH</button>
-        // <button>HOT</button>
-        }
+        <div>
+        <button>FRESH</button>
+        <button>HOT</button>
+
         </div>
       </div>
         <hr style={{margin: '0 15% 1% 15%'}}/>
 
-      <Card />
-
+      <Card offset={offset}/>
+      </article>
       <Footer />
       </div>
   );

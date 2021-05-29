@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import style from './navbar.module.scss';
 import Logo from '../../assests/logo.svg';
 import Bookmark from '../../assests/bookmark.svg';
@@ -7,9 +7,10 @@ import Search from '../../assests/search.svg';
 import Menu from '../../assests/menu.svg';
 
 
-const navbar = () => {
+const Navbar = ({navBackground}) => {
+    
     return (
-        <div className={style.container}>
+        <div className={style.container} style={{background:navBackground}} >
             <ul>
                 <img src={Logo} alt="logo"/>
                 <li>TRENDING</li>
@@ -29,4 +30,4 @@ const navbar = () => {
     )
 }
 
-export default navbar;
+export default Navbar;

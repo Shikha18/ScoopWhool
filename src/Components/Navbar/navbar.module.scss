@@ -1,10 +1,14 @@
 .container {
     width: 100%;
-    position: absolute;
+    position: fixed;
     display: flex;
+    margin: 0 12%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
   ul {
     //   background-color: #000000;
-      color: #1b91ff;;
+      color: #1b91ff;
+      z-index: 1000;
       height: 4vh;
       list-style: none;
       width: 99%;
@@ -14,10 +18,11 @@
       margin: 0;
       padding: 12px 10px;
       li {
-          font-weight: 600;
-          font-size: 18px;
           padding: 5px;
           border-radius: 5px;
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: .03em;
       }
       li:hover {
           color: #cccccc;

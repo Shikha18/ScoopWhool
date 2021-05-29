@@ -3,6 +3,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    // height: 100px; 
+    overflow: scroll;
     div {
         width: 20%;
         margin: 10px 10px 10px 0;
@@ -38,6 +40,9 @@
         img:hover {
             transform: scale(1.2);
         }
+    }
+    .loadingStyle {
+        color: #1b91ff;
     }
 }
 
