@@ -7,41 +7,51 @@ import Footer from './Components/Footer/footer';
 
 function App() {
   const [offset, setOffset] = useState(1);
-  const [navBackground , setNavBackground] = useState('');
+  const [navBackground, setNavBackground] = useState('');
 
-   const handleScroll = event => {
-        const { scrollTop, clientHeight, scrollHeight } = event.target;
+  const handleScroll = event => {
+    const { scrollTop, clientHeight, scrollHeight } = event.target;
 
-        if(scrollHeight - scrollTop === clientHeight) {
-            setOffset(prev => prev + 1);
-        }
-        console.log('anant-------->', window.scrollY);
-        if (window.scrollY < 100) {
-           setNavBackground("transparent")
-        } else {
-           setNavBackground("white")
-        } 
+    if (scrollHeight - scrollTop === clientHeight) {
+      setOffset(prev => prev + 1);
     }
+
+    if (scrollTop < 1) {
+      setNavBackground("transparent")
+    } else {
+      setNavBackground("white")
+    }
+  }
+
+  let timerId;
+  const debounce = (func, time) => event => {
+    if(timerId) {
+      clearTimeout(timerId);
+    }
+    timerId = setTimeout(()=>{
+      func(event);
+    }, time)
+  }
 
   return (
     <div className={style.app}>
-      <Navbar navBackground={navBackground}/>
-      <article onScroll={handleScroll}>
-      <Main />
+      <Navbar navBackground={navBackground} />
+      <article onScroll={debounce(handleScroll, 1000)}>
+        <Main />
 
-      <div className={style.tags}>
-        <div>
-        <button>FRESH</button>
-        <button>HOT</button>
+        <div className={style.tags}>
+          <div>
+            <button>FRESH</button>
+            <button>HOT</button>
 
+          </div>
         </div>
-      </div>
-        <hr style={{margin: '0 15% 1% 15%'}}/>
+        <hr style={{ margin: '0 15% 1% 15%' }} />
 
-      <Card offset={offset}/>
+        <Card offset={offset} />
       </article>
       <Footer />
-      </div>
+    </div>
   );
 }
 

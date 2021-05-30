@@ -2,44 +2,30 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import style from './card.module.scss';
 
-const Card = () => {
-    const [detail, setDetail] = useState('');
-    const [offset, setOffset] = useState('');
+const Card = ({offset}) => {
+    const [detail, setDetail] = useState([]);
     const [loading, setLoading] = useState(true);
-    const apiUrl = `https://www.scoopwhoop.com/api/v4/read/all/?offset=${offset}&limit=8`;
 
-    const getData = () => {
-        axios.get(apiUrl).then(res => {
-            // setDetail(res.data);
-            console.log('data---->', res.data);
-            return res.data;
-        });
-    }
-
-    const handleScroll = event => {
-        const {scrollTop, clientHeight, scrollHeight} = event.currentTarget;
-        console.log("ScrollTop: ", scrollTop);
-        console.log("clientHeight: ", clientHeight);
-        console.log("scrollHeight: ", scrollHeight);
-
-        if(scrollHeight - scrollTop === clientHeight) {
-            setOffset(prev => prev+1);
-        }
+    
+    const getData = async () => {
+        const apiUrl = `https://www.scoopwhoop.com/api/v4/read/all/?offset=${offset}&limit=8`;
+        const res = await axios.get(apiUrl);
+            return res.data.data;
     }
 
     useEffect(() => {
         const loadData = async () => {
             setLoading(true);
-            const newData = await getData(offset);
+            const newData = await getData();
             setDetail(prev => [...prev, ...newData]);
             setLoading(false);
         }
         loadData();
-    }, [offset]);
+    }, [getData]);
 
     return (
-        <div className={style.container} onScroll={handleScroll}>{
-            detail?.data?.map(item => (
+        <div className={style.container}>{
+            detail?.map(item => (
                 <div>
                     <img src={item.feature_img} />
                     <p>{item.category}</p>

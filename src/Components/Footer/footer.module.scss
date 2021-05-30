@@ -13,6 +13,13 @@
             color: #ccc;
             text-decoration: none;
         }
+        div {
+            svg {
+                padding: 8px;
+                background-color: #ccc;
+                margin-right: 10px;
+            }
+        }
     }
     section:nth-child(1){
             p {
@@ -22,5 +29,17 @@
     }
     section:nth-child(2){
         justify-content: space-around;
+    }
+}
+
+@media(max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        section {
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
     }
 }
