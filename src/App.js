@@ -10,11 +10,8 @@ function App() {
   const [navBackground, setNavBackground] = useState('');
 
   const handleScroll = event => {
-    const { scrollTop, clientHeight, scrollHeight } = event.target;
-
-    if (scrollHeight - scrollTop === clientHeight) {
-      setOffset(prev => prev + 1);
-    }
+    const { scrollTop } = event.target;
+      setOffset(offset + 8); 
 
     if (scrollTop < 1) {
       setNavBackground("transparent")
@@ -24,7 +21,7 @@ function App() {
   }
 
   let timerId;
-  const debounce = (func, time) => event => {
+  const debounce = (event, func, time) => {
     if(timerId) {
       clearTimeout(timerId);
     }
@@ -36,7 +33,7 @@ function App() {
   return (
     <div className={style.app}>
       <Navbar navBackground={navBackground} />
-      <article onScroll={debounce(handleScroll, 1000)}>
+      <article onScroll={(event) => debounce(event, handleScroll, 1000)}>
         <Main />
 
         <div className={style.tags}>

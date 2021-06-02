@@ -21,13 +21,13 @@ const Card = ({offset}) => {
             setLoading(false);
         }
         loadData();
-    }, [getData]);
+    }, [offset]);
 
     return (
         <div className={style.container}>{
             detail?.map(item => (
                 <div>
-                    <img src={item.feature_img} />
+                    <img src={item.feature_img} alt="feature-img"/>
                     <p>{item.category}</p>
                     <h4>{item.title}</h4>
                     <p>{item.auth_display.display_name}</p>
@@ -36,7 +36,8 @@ const Card = ({offset}) => {
             ))
         }
         {
-            loading && <div> Loading .... </div>
+            loading &&
+            <div> Loading .... </div>
         }
         </div>
     )

@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './main.module.scss';
-import Arrow from '../../assests/arrow.svg';
 
 
 const main = () => {

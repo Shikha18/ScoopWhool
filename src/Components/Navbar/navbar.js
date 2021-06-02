@@ -1,10 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import style from './navbar.module.scss';
-import Logo from '../../assests/logo.svg';
-import Bookmark from '../../assests/bookmark.svg';
-import Profile from '../../assests/profile.svg';
-import Search from '../../assests/search.svg';
-import Menu from '../../assests/menu.svg';
 
 
 const Navbar = ({navBackground}) => {

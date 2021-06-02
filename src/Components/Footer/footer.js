@@ -1,17 +1,12 @@
 import React from 'react';
 import style from './footer.module.scss';
 import Scoop from '../../assests/scoopwhoolLogoFoot.svg';
-import Fb from '../../assests/fb.svg';
-import Twitter from '../../assests/twitter.svg';
-import Insta from '../../assests/insta.svg';
-
-
 
 const footer = () => {
     return (
         <div className={style.container}>
             <section>
-                <img src={Scoop} />
+                <img src={Scoop} alt="backdrop"/>
                 <p>ScoopWhoop Media Pvt Ltd.</p>
             </section>
             <section>
