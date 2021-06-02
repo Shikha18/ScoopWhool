@@ -11,16 +11,15 @@ function App() {
 
   const handleScroll = event => {
     const { scrollTop } = event.target;
-      setOffset(offset + 8); 
-
-    if (scrollTop < 1) {
+      setOffset(offset + 8);
+    if (scrollTop === 0) {
       setNavBackground("transparent")
     } else {
       setNavBackground("white")
     }
   }
 
-  let timerId;
+  let timerId;s
   const debounce = (event, func, time) => {
     if(timerId) {
       clearTimeout(timerId);
