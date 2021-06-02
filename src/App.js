@@ -19,7 +19,7 @@ function App() {
     }
   }
 
-  let timerId;s
+  let timerId;
   const debounce = (event, func, time) => {
     if(timerId) {
       clearTimeout(timerId);
